@@ -1,0 +1,132 @@
+.category {
+ background-color: #f0f0f0;
+}
+
+.category .container {
+  max-width: 83.33333%;
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.category .category-head {
+  display: flex;
+}
+
+.category .category-head-select-manu {
+  margin: 10px 0;
+  margin-right: 20px;
+}
+
+.category .category-head-select-price {
+  margin: 10px 0;
+  margin-right: 20px;
+}
+
+.category .category-head-select-rate {
+  margin: 10px 0;
+}
+
+.category .cover {
+  margin-bottom: 15px;
+}
+.category .item {
+  padding: 0 20px 10px;
+  background: #fff;
+}
+
+.category .item:hover .item-image img {
+  transform: scale(100%);
+}
+
+.category .item:hover .btn-addCart {
+  display: block;
+}
+.category .item:hover .slick-next {
+  display: block;
+}
+
+.category .item-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.category .item-image img {
+  transform: scale(80%);
+  max-width: 100%;
+  max-height: 100%;
+  transition: 0.5s ease-in-out;
+  float: left;
+  vertical-align: middle;
+  border: 0;
+  height: auto;
+}
+
+.category .item-manufactory {
+  display: block;
+}
+
+.category .item-manufactory img {
+  height: auto;
+  max-width: 100px;
+}
+
+.category .item-name {
+  margin: 10px 0;
+  overflow: hidden;
+  display: block;
+  height: 18px;
+}
+
+.category .item-description {
+  margin: 10px 0;
+  height: 55px;
+  overflow: hidden;
+  display: block;
+}
+
+.category .item-price {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  color: #c8191f;
+}
+.category .item:hover {
+  box-shadow: 0 3px 10px 0 #ccc;
+  border-radius: 10px;
+}
+
+.category .btn-addCart {
+  color: #fff;
+  background-color: #1b75bc;
+  font-size: 16px;
+  border-width: 5px 15px 10px;
+  line-height: 44px;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+  margin: 5px 0;
+  display: none;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.category .btn-addCart:hover {
+  opacity: 1;
+}
+
+.category .rating-avg {
+  display: flex;
+  margin: 8px 0;
+}
+
+.category .star {
+  margin-right: 8px;
+}
+
+.category .rating-number {
+  font-size: 16px;
+  color: #0f1111;
+}
+

@@ -1,0 +1,19 @@
+.admin {
+    background-color: #f0f0f0;
+}
+
+.body-admin {
+    max-width: 83.33333%;
+    margin: auto;
+    display: flex;
+    border-bottom: 4px solid var(--primary);
+}
+
+.sidebar-admin {
+    
+}
+
+.container-admin {
+    flex: 1;
+    background-color: #fff;
+}

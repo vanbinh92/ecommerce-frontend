@@ -1,0 +1,106 @@
+.reset {
+  max-width: 500px;
+  margin: 70px auto;
+}
+
+.reset-container {
+  padding: 0px 25px 10px;
+  box-shadow: 0px 0px 0px 5px rgb(255 255 255 / 40%),
+    0px 4px 20px rgb(0 0 0 / 33%);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reset-head {
+}
+
+.reset-head-title {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.reset-head-title h3 {
+  color: #1b75bc;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.reset-head-description {
+}
+
+.reset-body {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  justify-content: center;
+}
+
+.reset-body-label {
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+.reset-body-input {
+  width: 80%;
+}
+
+.reset-body-input input {
+  background: #f5f5f5;
+  font-size: 16px;
+  border-radius: 3px;
+  border: none;
+  padding: 12px 20px;
+  box-shadow: inset 0px 2px 3px rgb(0 0 0 / 10%);
+  clear: both;
+  width: 100%;
+}
+
+.reset-body-input input[type="text"]:focus {
+  background: #fff;
+  box-shadow: 0px 0px 0px 3px #4d698d, inset 0px 2px 3px rgba(0, 0, 0, 0.2),
+    0px 5px 5px rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+.reset-btn {
+  opacity: 0.7;
+}
+
+.reset-btn:hover {
+  opacity: 1;
+}
+
+.reset-btn button {
+  padding: 12px 18px;
+  background-color: #dda25c;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.reset-back-login {
+  display: flex;
+  margin: 20px;
+}
+
+.reset-back-login a {
+  cursor: pointer;
+  font-size: 20px;
+  color: #333;
+  text-decoration: none;
+}
+
+.reset-back-login:hover a,.reset-back-login:hover i {
+  color: #1b75bc;
+}
+
+.reset-back-icon {
+  font-size: 25px;
+  color: #333;
+  padding: 0 20px;
+  cursor: pointer;
+}

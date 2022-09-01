@@ -1,0 +1,36 @@
+.footer {
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 15px;
+  margin-top: 20px;
+  width: 83.33333%;
+}
+
+.footer-col {
+  width: 25%;
+}
+
+.f-title {
+  font-size: 20px;
+  margin: 15px 0;
+  font-weight: 700;
+}
+
+.f-list {
+  list-style-type: none;
+}
+
+.f-info-item,
+.f-list li {
+  padding: 5px 0;
+}
+
+.f-list a {
+  text-decoration: none;
+  color: #333;
+}
+
+.f-list a:hover {
+    color: #ed1c24;
+    transition: .3s ease-out;
+}

@@ -1,0 +1,15 @@
+.header-admin {
+    background-color: var(--primary);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    max-width: 83.33333%;
+    margin: auto;
+    cursor: pointer;
+    
+}
+.header-admin .title {
+    font-size: 40px;
+}

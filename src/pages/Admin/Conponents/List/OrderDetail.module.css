@@ -1,0 +1,45 @@
+.modal {
+  background-color: #f1f2f3;
+  width: 83.33333%;
+  min-height: 50vh;
+  margin: auto;
+  position: relative;
+}
+.modal .header {
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+.modal .content {
+  width: 100%;
+  padding: 10px 5px;
+}
+
+.modal .content-head > tr > th,
+.modal .content-body > tr > td {
+  padding: 10px;
+  border: 1px solid;
+  text-align: center;
+}
+
+.modal .content-body img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  padding: 0 10px;
+}
+
+.modal .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: 0;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
