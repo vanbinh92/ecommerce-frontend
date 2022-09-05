@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { GlobalState } from "../../GlobalState";
 import { toast } from "react-toastify";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import "./firebase";
 
 function Login({ setLoading }) {
@@ -19,7 +19,8 @@ function Login({ setLoading }) {
     username: username,
     password: password,
   };
-  const provider = new GoogleAuthProvider();
+  const providerGoogle = new GoogleAuthProvider();
+  const providerFacebook = new FacebookAuthProvider();
   const auth = getAuth();
 
   const loginSubmit = async (e) => {
@@ -81,7 +82,7 @@ function Login({ setLoading }) {
 
   const handleLoginGoogle = async () => {
     setLoading(true);
-    signInWithPopup(auth, provider)
+    signInWithPopup(auth, providerGoogle)
       .then(async (result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         GoogleAuthProvider.credentialFromResult(result);
@@ -89,6 +90,53 @@ function Login({ setLoading }) {
         if (token) {
           const { data } = await axios.get(
             `${process.env.REACT_APP_SERVER_URL}/auth/google/login`,
+            { headers: { "access-token": "Bearer " + token } }
+          );
+          const login = {
+            accesstoken: data.accesstoken,
+            accountId: data.accountId,
+            role: data.role,
+            userId: data.userId,
+          };
+          if (JSON.parse(localStorage.getItem("cartItems"))) {
+            const products = {
+              products: JSON.parse(localStorage.getItem("cartItems")),
+            };
+            await axios.post(
+              `${process.env.REACT_APP_SERVER_URL}/cart/user/${login.userId}/products`,
+              products
+            );
+          }
+          localStorage.removeItem("login");
+          localStorage.setItem("login", JSON.stringify(login));
+
+          setIsLogged(true);
+          setLoading(false);
+          toast.success("Login successfully !", {
+            position: toast.POSITION.TOP_CENTER,
+          });
+          nav("/");
+        }
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+        toast.error(error.response.data.message, {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      });
+  };
+
+  const handleLoginFacebook = async () => {
+    setLoading(true);
+    signInWithPopup(auth, providerFacebook)
+      .then(async (result) => {
+        // This gives you a Google Access Token. You can use it to access the Facebook API.
+        FacebookAuthProvider.credentialFromResult(result);
+        const token = result.user.accessToken;
+        if (token) {
+          const { data } = await axios.get(
+            `${process.env.REACT_APP_SERVER_URL}/auth/facebook/login`,
             { headers: { "access-token": "Bearer " + token } }
           );
           const login = {
@@ -175,6 +223,11 @@ function Login({ setLoading }) {
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
 
             <span>Sign in with Google</span>
+          </div>
+          <div className={style["login-social"]} onClick={handleLoginFacebook}>
+            <img src="https://upload.wikimedia.org/wikipedia/en/0/04/Facebook_f_logo_%282021%29.svg" />
+
+            <span>Sign in with Facebook</span>
           </div>
           <div className={style.lastLogin}>
             <p>

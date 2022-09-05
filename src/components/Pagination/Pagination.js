@@ -2,12 +2,16 @@ import React, { useEffect, useState } from "react";
 import useCustomRouter from "../../Hooks/useCustomRouter";
 import style from "./Pagination.module.css";
 
-const Pagination = ({ totalPages, page, manufacture, sort,rate }) => {
+const Pagination = ({ totalPages, page, manufacture, sort, rate, query }) => {
   const [firstArr, setFirstArr] = useState([]);
   const [lastArr, setLastArr] = useState([]);
   useEffect(() => {
     const newArr = [...Array(totalPages)].map((_, i) => i + 1);
-    if (totalPages < 4) return setFirstArr(newArr);
+    if (totalPages < 4) {
+      setFirstArr(newArr);
+      setLastArr([]);
+      return;
+    }
 
     if (totalPages - page >= 4) {
       setFirstArr(newArr.slice(page - 1, page + 2));
@@ -17,7 +21,6 @@ const Pagination = ({ totalPages, page, manufacture, sort,rate }) => {
       setLastArr([]);
     }
   }, [totalPages, page]);
-
   const { pushQuery } = useCustomRouter();
 
   const isActive = (index) => {
@@ -28,26 +31,25 @@ const Pagination = ({ totalPages, page, manufacture, sort,rate }) => {
   };
   const prev = () => {
     const newPage = Math.max(page - 1, 1);
-    if(manufacture || sort || rate){
-      pushQuery({ page: newPage, manufacture, sort,rate });
-    }else {
-      pushQuery({ page: newPage});
+    if (manufacture || sort || rate) {
+      pushQuery({ page: newPage, manufacture, sort, rate });
+    } else {
+      pushQuery({ page: newPage, query });
     }
-    
   };
   const next = () => {
     const newPage = Math.min(page + 1, totalPages);
-    if(manufacture || sort || rate ){
-      pushQuery({ page: newPage, manufacture, sort,rate });
-    }else {
-      pushQuery({ page: newPage});
+    if (manufacture || sort || rate) {
+      pushQuery({ page: newPage, manufacture, sort, rate });
+    } else {
+      pushQuery({ page: newPage, query });
     }
   };
   const jump = (num) => {
-    if(manufacture || sort || rate ){
-      pushQuery({ page: num, manufacture, sort,rate });
-    }else {
-      pushQuery({ page: num});
+    if (manufacture || sort || rate) {
+      pushQuery({ page: num, manufacture, sort, rate });
+    } else {
+      pushQuery({ page: num, query });
     }
   };
   return (

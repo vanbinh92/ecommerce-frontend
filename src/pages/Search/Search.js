@@ -35,8 +35,7 @@ function Search({ handleAddProducts }) {
       }
     };
     getProducts();
-  }, [query, page]);
-
+  }, [page,query]);
   return (
     <div className={style.search}>
       <div className={style.container}>
@@ -115,7 +114,7 @@ function Search({ handleAddProducts }) {
               ))
             : null}
         </div>
-        <Pagination totalPages={totalPages} page={page} />
+        <Pagination totalPages={totalPages} page={page} query={query} />
       </div>
     </div>
   );
