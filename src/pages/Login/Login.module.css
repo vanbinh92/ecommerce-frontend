@@ -151,7 +151,7 @@ input[type="username"]:focus {
 }
 
 .login-social img {
-  width: 18px;
+  max-width: 18px;
   height: auto;
   margin-right: 10px;
 }
