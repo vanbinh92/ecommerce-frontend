@@ -152,11 +152,8 @@ input[type="username"]:focus {
 
 .login-social img {
   max-width: 18px;
-<<<<<<< HEAD
   max-height: 18px;
-=======
   height: auto;
->>>>>>> 9a2a11fe91ced4967da181b164b6e351accdda6e
   margin-right: 10px;
   object-fit: cover;
 }
