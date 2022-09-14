@@ -157,10 +157,12 @@ function App() {
 
   useEffect(() => {
     const getCategory = async () => {
+      setLoading(true)
       const { data } = await axios.get(
         `${process.env.REACT_APP_SERVER_URL}/category`
       );
       setCategoryAll(data);
+      setLoading(false)
     };
     getCategory();
   }, []);
