@@ -43,7 +43,7 @@ function Admin() {
         </div>
       </div>
       <div className={style.right}>
-        <Chart aspect={3 / 1} title="User Spending ( Last 6 Months)" />
+        <Chart aspect={2.9 / 1} title="User Spending ( Last 6 Months)" />
       </div>
     </div>
   );

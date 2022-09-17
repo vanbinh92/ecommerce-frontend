@@ -4,6 +4,7 @@ import style from "./Category.module.css";
 
 function CategoryProduct({ categoryList }) {
   const [scroll, setScroll] = useState(false);
+  const [isClick, setIsClick] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 106) {
@@ -13,6 +14,10 @@ function CategoryProduct({ categoryList }) {
       }
     });
   }, [scroll]);
+  
+  const handleClick = () => {
+    setIsClick(!isClick);
+  };
   return (
     <div
       className={
@@ -23,13 +28,23 @@ function CategoryProduct({ categoryList }) {
     >
       <div className="row no-gutters">
         <div className={style.menu}>
-          <div className={style["menu-left"]}>
+          <div
+            className={style["menu-left"]}
+            onClick={() => {
+              handleClick();
+            }}
+          >
             <i className="fas fa-bars"></i>
             Category
           </div>
           <div
             className={
-              scroll ? `${style["menu-nav-none"]}` : `${style["menu-nav"]}`
+              // scroll ? `${style["menu-nav-none"]}` : `${style["menu-nav"]}`
+              scroll && isClick
+                ? `${style["menu-nav"]}`
+                : scroll
+                ? `${style["menu-nav-none"]}`
+                : `${style["menu-nav"]}`
             }
           >
             <ul className={style["menu-list"]}>

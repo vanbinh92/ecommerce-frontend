@@ -115,7 +115,7 @@
   position: absolute;
   background-color: #fff;
   width: 140px;
-  z-index: 2;
+  z-index: 10;
   right: 0;
   top: 115%;
   transform-origin: 70% top;
@@ -140,7 +140,7 @@
   border-style: solid;
   border-color: transparent transparent #fff transparent;
   bottom: 70px;
-  right: 28px;
+  right: 40px;
 }
 
 .sub-logged-list {
@@ -154,6 +154,7 @@
 }
 .sub-logged-item:hover {
   background: #f5f5f5;
+  z-index: 10;
 }
 
 .sub-logged-item > a {

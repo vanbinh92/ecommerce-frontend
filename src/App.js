@@ -64,6 +64,7 @@ function App() {
           const { data } = await axios.get(
             `${process.env.REACT_APP_SERVER_URL}/cart/user/${login.userId}`
           );
+          
           setCartItems(data.newCarts);
           localStorage.setItem("cartItems", JSON.stringify(data.newCarts));
         } catch (error) {
