@@ -29,12 +29,13 @@ function ViewProduct({ title, isFile,setLoading }) {
             },
           }
         );
+        
         if(data.product) {
           setName(data.product.name)
           setPrice(data.product.price)
           setDescription(data.product.description)
-          setNameCategory(data.product.nameCategory)
-          setNameManufacture(data.product.nameManufacture)
+          setNameCategory(data.product["category.name"])
+          setNameManufacture(data.product["manufacture.name"])
           setFile(data.product.image)
         }
 
